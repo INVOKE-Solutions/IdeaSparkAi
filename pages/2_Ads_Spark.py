@@ -18,7 +18,7 @@ st.set_page_config(
                 )
 
 if check_password():
-    st.image("photos\AdsSpark_Logo.png")
+    st.image("photos/AdsSpark_Logo.png")
     st.write(f"""Removed any info related to 📱 Platform, specifically Facebook.""" )
     st.info(f"""
     Ads Generation using 5 inputs:\n
@@ -134,6 +134,6 @@ if check_password():
     
     st.write(f"""**Reference:**""" )
     st.write(f"""📰 decoris - Content Section""" )
-    st.image("photos\decoris_content_section.png")
+    st.image("photos/decoris_content_section.png")
     st.write(f"""🧑‍💼 decoris - Client Profile""" )
-    st.image("photos\decoris_client_profile.png")
+    st.image("photos/decoris_client_profile.png")
