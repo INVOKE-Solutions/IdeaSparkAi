@@ -24,7 +24,7 @@ def check_password():
     if "password_correct" not in st.session_state:
 
         st.header("IdeaSpark")
-        st.image("photos\IdeaSpark_Logo.png")  # Add this line to display the image
+        st.image("photos/IdeaSpark_Logo.png")  # Add this line to display the image
         st.text_input(
         "Please enter your password", type="password", on_change=password_entered, key="password"
         )
