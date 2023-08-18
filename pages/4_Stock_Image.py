@@ -21,7 +21,7 @@ st.set_page_config(
                 )
 
 if check_password():
-    st.image("photos\StockImage_Logo.png")
+    st.image("photos/StockImage_Logo.png")
     st.write("""
     ### Instructions 🗈
 
