@@ -19,7 +19,7 @@ st.set_page_config(
 
 
 if check_password():
-    st.image("photos\ImageVariation_Logo.png")
+    st.image("photos/ImageVariation_Logo.png")
     st.write("""
     ### Instructions 🗈
 
