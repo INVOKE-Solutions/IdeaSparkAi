@@ -21,7 +21,7 @@ st.set_page_config(
                 )
 
 if check_password():
-    st.image("photos\OpenEnded_Logo.png")
+    st.image("photos/OpenEnded_Logo.png")
     st.info(""" NOTE: You can download image by\
                     right clicking on the image and select save image as option""")  
 
