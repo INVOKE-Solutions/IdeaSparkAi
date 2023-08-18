@@ -97,7 +97,7 @@ if check_password():
 
             # Store the generated images in session state
             st.session_state.generated_images = []
-            for idx in range(n):
+            for idx in range(4):
                 image_url = response['data'][idx]['url']
 
                     # Generate a random combination of letters and numbers
