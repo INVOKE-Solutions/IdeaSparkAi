@@ -2,6 +2,7 @@ import streamlit as st
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from pytz import timezone
 
 introduction = """**IdeaSpark**   
 
@@ -29,7 +30,7 @@ def password_entered():
         sheet = activity.open("user-activity-ideaspark").sheet1
 
         # Get the current date and time
-        now = datetime.now()
+        now = datetime.now(timezone('Asia/Kuala_Lumpur'))
         date_time = now.strftime("%m/%d/%Y %H:%M:%S")
 
         # Insert data into the sheet
