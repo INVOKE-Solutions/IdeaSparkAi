@@ -14,3 +14,6 @@ __pycache__/
 
 #UI
 .streamlit/config.toml
+
+#File json for Google Sheet API
+.json
