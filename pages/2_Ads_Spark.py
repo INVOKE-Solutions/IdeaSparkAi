@@ -33,7 +33,6 @@ if check_password():
     st.write(f'Hello, {name}!')
   
     st.image("photos/AdsSpark_Logo.png")
-    st.write(f"""Removed any info related to 📱 Platform, specifically Facebook.""" )
     st.info(f"""
     Ads Generation using 5 inputs:\n
     📝 Visual Headline\n
