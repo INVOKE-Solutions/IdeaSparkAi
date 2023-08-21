@@ -22,10 +22,15 @@ def password_entered():
         # Use credentials to create a client to interact with the Google Drive API
         scope = ['https://spreadsheets.google.com/feeds',
                  'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('user-activity-ideaspark-aed98c90f4cb.json', scope)
+        # Load your TOML data from the st.secrets dictionary
+        toml_data = st.secrets["service_account"]
 
+        # Create credentials from the TOML data
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(toml_data, scope)
+
+        # Authorize the activity
         activity = gspread.authorize(creds)
-
+        
         # Find a workbook by name and open the first sheet
         sheet = activity.open("user-activity-ideaspark").sheet1
 
