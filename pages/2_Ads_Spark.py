@@ -9,6 +9,17 @@ import string
 # Access the OpenAI API key
 openai.api_key = st.secrets["api_key"]
 
+# Check if the "username" key exists in the st.session_state object
+if "username" not in st.session_state:
+    # If the key does not exist, initialize it with the default value "Invoke People"
+    st.session_state["username"] = "Invoke People"
+
+# Extract the name from the username
+name = st.session_state["username"].split('@')[0]
+
+# Capitalize the first letter of the name
+name = name.capitalize()
+
 # configure the default settings of the page.
 st.set_page_config(
                 page_title="Ads Spark",
@@ -18,6 +29,9 @@ st.set_page_config(
                 )
 
 if check_password():
+    # Display a greeting message to the user
+    st.write(f'Hello, {name}!')
+  
     st.image("photos/AdsSpark_Logo.png")
     st.write(f"""Removed any info related to 📱 Platform, specifically Facebook.""" )
     st.info(f"""
