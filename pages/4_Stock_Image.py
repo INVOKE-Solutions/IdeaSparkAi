@@ -6,6 +6,12 @@ from googletrans import Translator
 import random
 import string
 
+import gspread
+import pytz
+from oauth2client.service_account import ServiceAccountCredentials
+from datetime import datetime
+from pytz import timezone
+
 # Create a Translator object
 translator = Translator()
 
@@ -131,7 +137,39 @@ if check_password():
 
 
                     # Clear the progress bar
-                    progress_bar.empty()                 
+                    progress_bar.empty()     
+
+                # Initialize the session state with a default value for the "username" key
+                if "username" not in st.session_state:
+                    st.session_state["username"] = "Invoke People"
+        
+                # Use credentials to create a client to interact with the Google Drive API
+                scope = ['https://spreadsheets.google.com/feeds',
+                        'https://www.googleapis.com/auth/drive']
+                
+                # Load your TOML data from the st.secrets dictionary
+                toml_data = st.secrets["service_account"]
+        
+                # Create credentials from the TOML data
+                creds = ServiceAccountCredentials.from_json_keyfile_dict(toml_data, scope)
+        
+                # Authorize the activity
+                activity = gspread.authorize(creds)
+        
+                # Find a workbook by name and open the first sheet
+                sheet = activity.open("user-activity-ideaspark").get_worksheet(1)
+        
+                # Create a timezone object for the Kuala Lumpur time zone
+                kl_timezone = pytz.timezone('Asia/Kuala_Lumpur')
+                
+                # Get the current date and time in the Kuala Lumpur time zone
+                date_time = datetime.now(kl_timezone).strftime('%Y-%m-%d %H:%M:%S')
+                
+                # Get the username from the session state
+                name = st.session_state["username"]
+                
+                # Append the values to the sheet
+                sheet.append_row([name, date_time, "Stock Image"])
 
     # Create a button to show the history of generated images
     if st.button("Show History"):
