@@ -9,6 +9,7 @@ import string
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from pytz import timezone
 
 # Create a Translator object
 translator = Translator()
@@ -147,8 +148,11 @@ if check_password():
                 # Find a workbook by name and open the first sheet
                 sheet = activity.open("user-activity-ideaspark").get_worksheet(1)
 
-                # Get the current date and time
-                date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                # Create a timezone object for the Kuala Lumpur time zone
+                kl_timezone = pytz.timezone('Asia/Kuala_Lumpur')
+                
+                # Get the current date and time in the Kuala Lumpur time zone
+                date_time = datetime.now(kl_timezone).strftime('%Y-%m-%d %H:%M:%S')
                 
                 # Get the username from the session state
                 name = st.session_state["username"]
