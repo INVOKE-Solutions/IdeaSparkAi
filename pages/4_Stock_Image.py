@@ -6,11 +6,20 @@ from googletrans import Translator
 import random
 import string
 
+#REQUIRED FOR GOOGLESHEET RECORD USER ACTIVITY
 import gspread
 import pytz
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 from pytz import timezone
+
+# REQUIRED FOR GOOGLEDRIVE STORAGE
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
+import requests
+from PIL import Image
+from io import BytesIO
 
 # Create a Translator object
 translator = Translator()
@@ -139,6 +148,8 @@ if check_password():
                     # Clear the progress bar
                     progress_bar.empty()     
 
+                #RECORD USER ACTIVITY TO GOOGLE SHEET -----------------
+
                 # Initialize the session state with a default value for the "username" key
                 if "username" not in st.session_state:
                     st.session_state["username"] = "Invoke People"
@@ -170,6 +181,31 @@ if check_password():
                 
                 # Append the values to the sheet
                 sheet.append_row([name, date_time, "Stock Image"])
+
+                #SAVE GENERATED IMAGE TO GOOGLE DRIVE -----------------
+
+                # Use the credentials to create a client to interact with the Google Drive API
+                drive_service = build('drive', 'v3', credentials=creds)
+
+                # Get the image URL and caption from the session state
+                image_url, caption = st.session_state.generated_images[-1]
+
+                # Convert the image URL to an image of type JPEG
+                response = requests.get(image_url)
+                img = Image.open(BytesIO(response.content))
+                img = img.convert('RGB')
+
+                # Check if the 'Generated Image' folder exists and create it if it doesn't
+                folder_name = 'IdeaSpark-Generated_Photo'
+                query = f"mimeType='application/vnd.google-apps.folder' and trashed = false and name='{folder_name}'"
+                folders = drive_service.files().list(q=query).execute().get('files', [])
+                if not folders:
+                    file_metadata = {'name': folder_name, 'mimeType': 'application/vnd.google-apps.folder'}
+                    folder = drive_service.files().create(body=file_metadata).execute()
+                    folder_id = folder.get('id')
+                else:
+                    folder_id = folders[0].get('id')
+                    
 
     # Create a button to show the history of generated images
     if st.button("Show History"):
