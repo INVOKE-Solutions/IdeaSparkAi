@@ -126,6 +126,7 @@ if check_password():
 
                     # Clear the progress bar
                     progress_bar.empty()  
+                    
                 # Initialize the session state with a default value for the "username" key
                 if "username" not in st.session_state:
                     st.session_state["username"] = "Invoke People"
