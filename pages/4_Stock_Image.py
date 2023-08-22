@@ -6,20 +6,8 @@ from googletrans import Translator
 import random
 import string
 
-#REQUIRED FOR GOOGLESHEET RECORD USER ACTIVITY
-import gspread
-import pytz
-from oauth2client.service_account import ServiceAccountCredentials
-from datetime import datetime
-from pytz import timezone
-
-# REQUIRED FOR GOOGLEDRIVE STORAGE
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from googleapiclient.http import MediaFileUpload
-import requests
-from PIL import Image
-from io import BytesIO
+from gdrive_module import save_images_to_google_drive
+from gdrive_module import record_user_activity_stock_image
 
 # Create a Translator object
 translator = Translator()
@@ -148,63 +136,15 @@ if check_password():
                     # Clear the progress bar
                     progress_bar.empty()     
 
-                #RECORD USER ACTIVITY TO GOOGLE SHEET -----------------
-
-                # Initialize the session state with a default value for the "username" key
+               # Initialize the session state with a default value for the "username" key
                 if "username" not in st.session_state:
                     st.session_state["username"] = "Invoke People"
-        
-                # Use credentials to create a client to interact with the Google Drive API
-                scope = ['https://spreadsheets.google.com/feeds',
-                        'https://www.googleapis.com/auth/drive']
                 
-                # Load your TOML data from the st.secrets dictionary
-                toml_data = st.secrets["service_account"]
-        
-                # Create credentials from the TOML data
-                creds = ServiceAccountCredentials.from_json_keyfile_dict(toml_data, scope)
-        
-                # Authorize the activity
-                activity = gspread.authorize(creds)
-        
-                # Find a workbook by name and open the first sheet
-                sheet = activity.open("user-activity-ideaspark").get_worksheet(1)
-        
-                # Create a timezone object for the Kuala Lumpur time zone
-                kl_timezone = pytz.timezone('Asia/Kuala_Lumpur')
+                # Record user activity to Google Sheet
+                record_user_activity_stock_image(st.session_state["username"], st.secrets)
                 
-                # Get the current date and time in the Kuala Lumpur time zone
-                date_time = datetime.now(kl_timezone).strftime('%Y-%m-%d %H:%M:%S')
-                
-                # Get the username from the session state
-                name = st.session_state["username"]
-                
-                # Append the values to the sheet
-                sheet.append_row([name, date_time, "Stock Image"])
-
-                #SAVE GENERATED IMAGE TO GOOGLE DRIVE -----------------
-
-                # Use the credentials to create a client to interact with the Google Drive API
-                drive_service = build('drive', 'v3', credentials=creds)
-
-                # Get the image URL and caption from the session state
-                image_url, caption = st.session_state.generated_images[-1]
-
-                # Convert the image URL to an image of type JPEG
-                response = requests.get(image_url)
-                img = Image.open(BytesIO(response.content))
-                img = img.convert('RGB')
-
-                # Check if the 'Generated Image' folder exists and create it if it doesn't
-                folder_name = 'IdeaSpark-Generated_Photo'
-                query = f"mimeType='application/vnd.google-apps.folder' and trashed = false and name='{folder_name}'"
-                folders = drive_service.files().list(q=query).execute().get('files', [])
-                if not folders:
-                    file_metadata = {'name': folder_name, 'mimeType': 'application/vnd.google-apps.folder'}
-                    folder = drive_service.files().create(body=file_metadata).execute()
-                    folder_id = folder.get('id')
-                else:
-                    folder_id = folders[0].get('id')
+                # Save generated images to Google Drive
+                save_images_to_google_drive(st.session_state.generated_images, "IdeaSpark-Generated_Photo", st.secrets)
                     
 
     # Create a button to show the history of generated images
