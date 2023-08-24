@@ -76,56 +76,60 @@ if check_password():
 
     # Handle form submission
     if submit_button:
-        # Generate the text output
-        output = f"Generate an affective ads visual with the below details:\n\n"
-        output += f"1) Visual Headline: {visual_headline}\n"
-        output += f"2) Business Industry: {business_industry}\n"
-        output += f"3) Marketing Objective: {marketing_objective}\n"
-        output += f"4) Ad Objective: {fb_ad_objective}\n"
+        # Check if visual_headline and business_industry are blank
+        if not visual_headline or not business_industry:
+            st.error('Error: Please enter an image prompt')
+        else:
+            # Generate the text output
+            output = f"Generate an affective ads visual with the below details:\n\n"
+            output += f"1) Visual Headline: {visual_headline}\n"
+            output += f"2) Business Industry: {business_industry}\n"
+            output += f"3) Marketing Objective: {marketing_objective}\n"
+            output += f"4) Ad Objective: {fb_ad_objective}\n"
 
-        # Display the text output
-        st.write(output)
-
-        # Assign the output to the prompt variable
-        prompt = output
-
-        if prompt:
-             # Add a progress bar
-            progress_bar = st.progress(0)
-            for i in range(100):
-                # Update progress bar
-                progress_bar.progress(i + 1)
-                time.sleep(0.1)
-            st.write("Incoming... Making some tricks")
-
-            response = openai.Image.create(
-            prompt=prompt,
-            n=4,
-            size="1024x1024",
-            )
-
-            # Store the generated images in session state
-            st.session_state.generated_images = []
-            for idx in range(4):
-                image_url = response['data'][idx]['url']
-
+            # Display the text output
+            st.write(output)
+    
+            # Assign the output to the prompt variable
+            prompt = output
+    
+            if prompt:
+                 # Add a progress bar
+                progress_bar = st.progress(0)
+                for i in range(100):
+                    # Update progress bar
+                    progress_bar.progress(i + 1)
+                    time.sleep(0.1)
+                st.write("Incoming... Making some tricks")
+    
+                response = openai.Image.create(
+                prompt=prompt,
+                n=4,
+                size="1024x1024",
+                )
+    
+                # Store the generated images in session state
+                st.session_state.generated_images = []
+                for idx in range(4):
+                    image_url = response['data'][idx]['url']
+    
+                        # Generate a random combination of letters and numbers
+                    def generate_random_string(length):
+                        letters_and_digits = string.ascii_letters + string.digits
+                        return ''.join(random.choice(letters_and_digits) for i in 
+                        range(length))
+    
                     # Generate a random combination of letters and numbers
-                def generate_random_string(length):
-                    letters_and_digits = string.ascii_letters + string.digits
-                    return ''.join(random.choice(letters_and_digits) for i in 
-                    range(length))
-
-                # Generate a random combination of letters and numbers
-                random_string = generate_random_string(6)
-
-                # Create a caption that includes the random string
-                caption = f'AdsRec_{random_string}'
-
-                # Append a tuple containing the image URL and caption to the generated_images list
-                st.session_state.generated_images.append((image_url, caption))
-                
-                # Display the image with its caption
-                st.image(image_url, caption=caption, use_column_width=True)
+                    random_string = generate_random_string(6)
+    
+                    # Create a caption that includes the random string
+                    caption = f'AdsRec_{random_string}'
+    
+                    # Append a tuple containing the image URL and caption to the generated_images list
+                    st.session_state.generated_images.append((image_url, caption))
+                    
+                    # Display the image with its caption
+                    st.image(image_url, caption=caption, use_column_width=True)
 
         # Initialize the session state with a default value for the "username" key
         if "username" not in st.session_state:
