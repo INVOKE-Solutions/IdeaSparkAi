@@ -148,6 +148,11 @@ if check_password():
         # Record user activity to Google Sheet
         record_user_activity_ads_spark(st.session_state["username"], st.secrets)
         
+        # Check if the attribute generated_images exists in the st.session_state object
+        if "generated_images" not in st.session_state:
+            # Initialize the attribute to an empty list if it does not exist
+            st.session_state.generated_images = []
+
         # Save generated images to Google Drive
         save_images_to_google_drive(st.session_state.generated_images, "IdeaSpark-Generated_Photo", st.secrets)
 
