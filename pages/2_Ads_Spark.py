@@ -5,6 +5,7 @@ import time
 import random
 import string
 from googletrans import Translator
+translator = Translator()
 
 from gdrive_module import save_images_to_google_drive
 from gdrive_module import record_user_activity_ads_spark
