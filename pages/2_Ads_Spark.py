@@ -171,8 +171,5 @@ if check_password():
         else:
             st.write("No images have been generated yet")
     
-    st.write(f"""**Reference:**""" )
-    st.write(f"""📰 decoris - Content Section""" )
-    st.image("photos/decoris_content_section.png")
-    st.write(f"""🧑‍💼 decoris - Client Profile""" )
-    st.image("photos/decoris_client_profile.png")
+    st.write(f"""**Input Reference:**""" )
+    st.image("photos/AdsSpark_Input_Reference.png")
