@@ -41,8 +41,6 @@ if check_password():
     💼 Business Industry *\n
     🎯 Marketing Objective\n
     📣 Ad Objective\n
-    📢 Call to Action Headline\n
-    Note: inputs with (*) are in Client Profile - decoris
     """)
 
     with st.form(key="ads_form"):
@@ -72,10 +70,7 @@ if check_password():
                 "Local Awareness"
             ]
         )
-
-        # Text input for the call to action headline
-        cta_headline = st.text_input(label="**Call to Action Headline**")
-
+        
         # Submit button
         submit_button = st.form_submit_button(label="**Do the magic!✨**")
 
@@ -87,7 +82,6 @@ if check_password():
         output += f"2) Business Industry: {business_industry}\n"
         output += f"3) Marketing Objective: {marketing_objective}\n"
         output += f"4) Ad Objective: {fb_ad_objective}\n"
-        output += f"5) Call to Action Headline: {cta_headline}\n"
 
         # Display the text output
         st.write(output)
