@@ -77,7 +77,7 @@ if check_password():
     # Handle form submission
     if submit_button:
         # Generate the text output
-        output = f"Generate an ads with the below details:\n\n"
+        output = f"Generate an affective ads visual with the below details:\n\n"
         output += f"1) Visual Headline: {visual_headline}\n"
         output += f"2) Business Industry: {business_industry}\n"
         output += f"3) Marketing Objective: {marketing_objective}\n"
