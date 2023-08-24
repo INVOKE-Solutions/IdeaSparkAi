@@ -72,7 +72,7 @@ if check_password():
                 # Check if the prompt_input is blank
                 if not prompt_input:
                     st.error('Error: Please enter an image prompt') 
-                return
+             
                 else:
                     # Detect the language of the image prompt
                     lang = translator.detect(prompt_input).lang
