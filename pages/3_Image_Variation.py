@@ -117,7 +117,19 @@ if check_password():
         # Save generated images to Google Drive
         save_images_to_google_drive(st.session_state.generated_images, "IdeaSpark-Generated_Photo", st.secrets)
 
-    
+     # Create a button to show the history of generated images
+    if st.button("Show History"):
+        # Check if the generated_images attribute exists in session state
+        if "generated_images" in st.session_state:
+            
+            # Retrieve the list of generated images from session state
+            generated_images = st.session_state.generated_images
+
+            # Display the generated images with their original captions
+            for image_url, caption in generated_images:
+                st.image(image_url, caption=caption, use_column_width=True)
+        else:
+            st.write("No images have been generated yet")
 
 
     
