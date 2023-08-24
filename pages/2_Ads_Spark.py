@@ -65,7 +65,7 @@ if check_password():
             label="**Ad Objective**",
             options=[
                 "Brand Awareness", "Reach", "Traffic", "Engagement", "App Installs",
-                "Video Views", "Lead Generation", "Messages", "Conversion",
+                "Lead Generation", "Messages", "Conversion",
                 "Catalog Sales", "Store Traffic", "Page Likes", "Event Responses",
                 "Local Awareness"
             ]
