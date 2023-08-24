@@ -4,6 +4,7 @@ from security_utils import check_password
 import time
 import random
 import string
+from googletrans import Translator
 
 from gdrive_module import save_images_to_google_drive
 from gdrive_module import record_user_activity_ads_spark
@@ -81,6 +82,13 @@ if check_password():
             st.error('Error: Please enter an image prompt')
 
         else:
+            # Detect the language of the visual_headline
+            lang = translator.detect(visual_headline).lang
+    
+            # If the language is Malay, translate the text
+            if lang == 'ms':
+                visual_headline = translator.translate(visual_headline, src='ms', dest='en').text
+            
             # Generate the text output
             output = f"Generate an affective ads visual with the below details:\n\n"
             output += f"1) Visual Headline: {visual_headline}\n"
