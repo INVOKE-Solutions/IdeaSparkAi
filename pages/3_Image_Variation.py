@@ -65,13 +65,14 @@ if check_password():
 
     # Handle form submission
     if submit_button:
-        # TODO: Add code to generate images using the specified prompt, size, and number of images
-        if uploaded_file is not None:
-
+        # Check if an image has been uploaded
+        if uploaded_file is None:
+            st.error('Error: Please upload an image')
+        else:
             image = Image.open(uploaded_file)
-
+    
             st.image(uploaded_file, caption='Uploaded image', use_column_width=True)
-
+    
             width, height = get_width_height(size)
             image = resize_image(image,width,height)
             response = openai.Image.create_variation(
