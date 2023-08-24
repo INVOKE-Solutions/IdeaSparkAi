@@ -79,6 +79,7 @@ if check_password():
         # Check if visual_headline and business_industry are blank
         if not visual_headline or not business_industry:
             st.error('Error: Please enter an image prompt')
+            return
         else:
             # Generate the text output
             output = f"Generate an affective ads visual with the below details:\n\n"
