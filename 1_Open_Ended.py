@@ -114,7 +114,7 @@ if check_password():
                                 random_string = generate_random_string(6)
 
                                 # Create a caption that includes the random string
-                                caption = f'StockImage_{random_string}'
+                                caption = f'OpenEnded_{random_string}'
 
                                 # Append a tuple containing the image URL and caption to the generated_images list
                                 st.session_state.generated_images.append((image_url, caption))
