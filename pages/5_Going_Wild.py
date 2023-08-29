@@ -37,7 +37,7 @@ emotions = {
 }
 
 if check_password():
-    st.image("photos/IdeaSpark_Logo.png")
+    st.image("photos/GoingWild_Logo.png")
 
     # Create the form
     with st.form(key="creative_form"):
