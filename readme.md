@@ -40,33 +40,37 @@ To run the Streamlit apps locally on your machine, follow these steps:
 
 ## Streamlit Apps
 
-Here's a list of Streamlit apps available in this repository:
+Welcome to a treasure trove of Streamlit wonder! Behold the lineup of dazzling apps within this realm:
 
 ### Page 1: Open Ended
 
-Description: Freely write prompt with your own creativity or idea to generate any images/visuals
+**Description:** Set your creativity free with an open canvas for prompts and ideas.
 
-Usage: Enter your prompt, select image size & submit.
+**Usage:** Simply type in your prompt, choose an image size, and let the magic unfold!
 
 ### Page 2: Ads Spark
 
-Description: Create ads visual reference for the ideation on making an effective ads visual
+**Description:** Ignite your ad campaigns with this dynamic tool that generates visual references for your advertising brainstorm sessions.
 
-Usage:Refering to Decoris.io details, fill up & choose selection.
+**Usage:** Follow the Decoris.io guide, fill in the blanks, and let inspiration light up your screen.
 
 ### Page 3: Image Variation
 
-Description: Create different variation based on the the images you have on hand. 
+**Description:** Unleash the magic of image variation by effortlessly creating diverse versions of your visuals.
 
-Usage: Instructions explained in the page. 
+**Usage:** All the steps are elegantly explained on the page itself.
 
 ### Page 4: Stock Image
 
-Description: Use this page to create any stock images you need.
+**Description:** Create captivating stock images that captivate the hearts of your audience.
 
-Usage: Instructions explained in the page. 
+**Usage:** The page holds your hand through the entire process.
 
 ### Page 5: Going Wild
+
+**Description:** Dive headfirst into a wild sea of prompt engineering, and watch as creativity flows like a river.
+
+**Usage:** Cut loose, break the mold, and let your imagination run wild!
 
 Description: Going wild with the prompt engineering
 Usage: Get out of your box, prompt in details what you need.
