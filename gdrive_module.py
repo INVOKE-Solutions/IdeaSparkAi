@@ -218,4 +218,44 @@ def record_user_activity_stock_image(username, secrets):
 
     # Append the values to the sheet
     sheet.append_row([username, date_time_str, "Stock Image"])
+    
+
+#SAVE USER ACTIVITY RECORD FOR GOING WILD
+def record_user_activity_going_wild(username, secrets):
+
+    '''
+    Given username and secrets, return something
+
+    Args:
+        :param username:str --
+        :param secrets:str ---
+
+    Return:
+
+    
+    '''
+
+    # Use credentials to create a client to interact with the Google Drive API
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    toml_data = secrets["service_account"]
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(toml_data, scope)
+
+    # Authorize the activity
+    activity = gspread.authorize(creds)
+
+    # Find a workbook by name and open the first sheet
+    sheet = activity.open("user-activity-ideaspark").get_worksheet(1)
+
+    # Get the current date and time in UTC
+    now_utc = datetime.now(pytz.utc)
+
+    # Convert the date and time to the Kuala Lumpur timezone
+    kl_tz = pytz.timezone('Asia/Kuala_Lumpur')
+    now_kl = now_utc.astimezone(kl_tz)
+
+    # Format the date and time as a string
+    date_time_str = now_kl.strftime('%Y-%m-%d %H:%M:%S')
+
+    # Append the values to the sheet
+    sheet.append_row([username, date_time_str, "Going Wild"])
 
