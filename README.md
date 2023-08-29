@@ -97,7 +97,7 @@ This project is licensed under the [MIT License](LICENSE).
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/afifmansor"><img src="https://avatars.githubusercontent.com/u/USERID1?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Contributor 1</b></sub></a><br /><a href="https://www.linkedin.com/in/tuanahmadafif"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin" alt="LinkedIn"></a></td>
+    <td align="center"><a href="https://github.com/afifmansor"><img src="https://avatars.githubusercontent.com/u/USERID1?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Afif Mansor</b></sub></a><br /><a href="https://www.linkedin.com/in/tuanahmadafif"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin" alt="LinkedIn"></a></td>
   </tr>
 </table>
 
