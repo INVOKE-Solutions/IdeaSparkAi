@@ -40,7 +40,7 @@ if check_password():
     st.info(f"""
     Ads Generation using 5 inputs:\n
     📝 Visual Headline\n
-    💼 Business Industry *\n
+    💼 Business Industry\n
     🎯 Marketing Objective\n
     📣 Ad Objective\n
     """)
