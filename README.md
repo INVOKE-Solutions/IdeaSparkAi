@@ -1,4 +1,8 @@
-# IdeaSparkAi 🚀
+# IdeaSpark 🚀
+
+### Built With
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://invoke-analytics-crosstabs-prod-generator-cs1fpd.streamlitapp.com/](https://ideasparkbyinvoke.streamlit.app)
 
 Welcome to IdeaSparkAi, a collection of Streamlit apps designed to spark your creativity and aid in idea generation. These apps are part of the INVOKE Analytics project.
 
