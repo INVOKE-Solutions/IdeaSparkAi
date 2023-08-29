@@ -91,11 +91,7 @@ if check_password():
                 visual_headline = translator.translate(visual_headline, src='ms', dest='en').text
             
             # Generate the text output
-            output = f"Generate an affective ads visual with the below details:\n\n"
-            output += f"1) Visual Headline: {visual_headline}\n"
-            output += f"2) Business Industry: {business_industry}\n"
-            output += f"3) Marketing Objective: {marketing_objective}\n"
-            output += f"4) Ad Objective: {fb_ad_objective}\n"
+            output = f"An affective ads visual, {visual_headline}, {business_industry}, {marketing_objective}, {fb_ad_objective}"
 
             # Display the text output
             st.write(output)
