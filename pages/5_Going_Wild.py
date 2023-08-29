@@ -4,6 +4,10 @@ from security_utils import check_password
 from googletrans import Translator
 import random
 import string
+import time
+
+from gdrive_module import save_images_to_google_drive
+from gdrive_module import record_user_activity_going_wild
 
 # Create a Translator object
 translator = Translator()
@@ -37,10 +41,14 @@ emotions = {
 }
 
 if check_password():
-    st.image("photos/GoingWild_Logo.png")
+    st.image("photos\GoingWild_Logo.png")
 
     # Create the form
     with st.form(key="creative_form"):
+
+        st.write("**Your Prompt**")
+        # Note for the user
+        st.write("💡 You may use either English or Malay language")
 
         # Input prompt
         prompt_input = st.text_input("Enter a subject or element:")
@@ -105,9 +113,9 @@ if check_password():
                 prompt_input = f"{prompt} "
 
             # Generate final prompt
-            final_prompt = f"{prompt_input},"
+            final_prompt = f"{prompt_input}"
             if selected_options != "None":
-                final_prompt += f"{', '.join([', '.join(emotion_options) for emotion_options in selected_options.values() if emotion_options])}"
+                final_prompt += f",{', '.join([', '.join(emotion_options) for emotion_options in selected_options.values() if emotion_options])}"
             if selected_look != "None":
                 final_prompt += f", {selected_look}"
             if selected_proximity != "None":
@@ -123,6 +131,15 @@ if check_password():
 
             # Display the text output
             st.write(final_prompt)
+
+            if final_prompt:
+                # Add a progress bar
+                progress_bar = st.progress(0)
+                for i in range(100):
+                    # Update progress bar
+                    progress_bar.progress(i + 1)
+                    time.sleep(0.1)
+                st.write("Making some tricks....")
 
             response = openai.Image.create(
                 prompt=final_prompt,
@@ -161,6 +178,20 @@ if check_password():
                     
                     # Display the image with its caption
                     st.image(image_url, caption=caption, use_column_width=True)
+
+                # Clear the progress bar
+                progress_bar.empty()  
+            
+             # Initialize the session state with a default value for the "username" key
+                if "username" not in st.session_state:
+                    st.session_state["username"] = "Invoke People"
+                
+                # Record user activity to Google Sheet
+                record_user_activity_going_wild(st.session_state["username"], st.secrets)
+                
+                # Save generated images to Google Drive
+                save_images_to_google_drive(st.session_state.generated_images, "IdeaSpark-Generated_Photo", st.secrets)
+            
 
  # Create a button to show the history of generated images
     if st.button("Show History"):
