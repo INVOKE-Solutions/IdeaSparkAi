@@ -26,6 +26,7 @@ IdeaSparkAi is an innovative app designed to help creatives generate compelling 
   - [Page 5: Going Wild](#Page-5-Going-Wild)
 - [Usage](#usage)
 - [License](#license)
+- [Contributor](#contributor)
 
 ## Introduction
 
@@ -88,3 +89,19 @@ streamlit run 1_Open_Ended.py
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Contributor
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/afifmansor"><img src="https://avatars.githubusercontent.com/u/USERID1?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Contributor 1</b></sub></a><br /><a href="https://www.linkedin.com/in/tuanahmadafif"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin" alt="LinkedIn"></a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
