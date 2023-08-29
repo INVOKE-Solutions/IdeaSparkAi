@@ -4,7 +4,7 @@ Welcome to IdeaSparkAi, a collection of Streamlit apps designed to spark your cr
 
 IdeaSparkAi is an innovative app designed to help creatives generate compelling ads for social media platforms such as Facebook, Instagram, LinkedIn, and more. With its advanced AI technology, IdeaSparkAi takes the guesswork out of ad creation by providing users with a wealth of ideas and inspiration. Whether you're looking to boost engagement, increase conversions, or simply stand out from the crowd, IdeaSparkAi is the perfect tool for any creative looking to take their social media advertising to the next level. 💡
 
-- Project name: IdeaSpark - Deployed in Streamlit apps
+- Project name: IdeaSpark - Sparking Ideas through Streamlit
 - Objective: Spark idea to Invoke's creative and marketing team to produce compelling visuals, speed-up ideation process
 - Document generated format: PNG
 - Document format upload: JPEG, PNG
