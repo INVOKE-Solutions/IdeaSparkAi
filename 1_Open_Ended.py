@@ -41,6 +41,8 @@ if check_password():
     st.image("photos/OpenEnded_Logo.png")
     st.info(""" NOTE: You can download image by\
                     right clicking on the image and select save image as option""")  
+    link_text = "[User Manual](https://drive.google.com/file/d/18gB4deiejEphDyyKhCjcMSHAK8qgqE0i/view?usp=sharing)"
+    st.markdown(link_text, unsafe_allow_html=True)
 
     # Create the form
     with st.form(key="image_form"):
