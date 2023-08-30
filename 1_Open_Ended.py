@@ -157,3 +157,6 @@ if check_password():
         else:
             st.write("No images have been generated yet")
 
+    link_text = "[Visual Storage](https://drive.google.com/drive/folders/14xJDtnFRyj_Yr20yFDdtvrCDMeHFQjxN?usp=sharing)"
+    st.markdown(link_text, unsafe_allow_html=True)
+
