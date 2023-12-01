@@ -107,16 +107,19 @@ if check_password():
                     progress_bar.progress(i + 1)
                     time.sleep(0.1)
                 st.write("Incoming... Making some tricks")
+
+                num_images=1
     
                 response = openai.Image.create(
-                prompt=prompt,
-                n=4,
-                size="1024x1024",
+                    model="dall-e-3",
+                    prompt=prompt,
+                    n=num_images,
+                    size="1024x1024",
                 )
     
                 # Store the generated images in session state
                 st.session_state.generated_images = []
-                for idx in range(4):
+                for idx in range(num_images):
                     image_url = response['data'][idx]['url']
     
                         # Generate a random combination of letters and numbers
