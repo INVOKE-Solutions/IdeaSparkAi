@@ -142,8 +142,8 @@ if check_password():
                 st.write("Making some tricks....")
 
             response = openai.Image.create(
+                model="dall-e-3",
                 prompt=final_prompt,
-                model="image-alpha-001",
                 size="1024x1024",
                 response_format="url",
                 api_key=openai.api_key
