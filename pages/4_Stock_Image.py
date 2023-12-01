@@ -62,7 +62,7 @@ if check_password():
                 prompt_input = st.text_input(label="**Enter image prompt**")
 
                 # Select box to select the size of the images
-                size = st.selectbox(label="**Select image size**", options=["256x256", "512x512", "1024x1024"])
+                size = st.selectbox(label="**Select image size**", options=["1024x1024", "1024x1792", "1792x1024"])
 
                 # Submit button
                 submit_button = st.form_submit_button(label="**Generate Stock Images**")
@@ -97,9 +97,10 @@ if check_password():
                             time.sleep(0.1)
                         st.write("Making some tricks....")
 
-                        num_images=4
+                        num_images=1
 
                         response = openai.Image.create(
+                            model="dall-e-3",
                             prompt=stock_prompt,
                             n=num_images,
                             size=size,
