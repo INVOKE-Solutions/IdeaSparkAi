@@ -32,16 +32,23 @@ IdeaSparkAi is an innovative app designed to help creatives generate compelling 
 
 IdeaSparkAi is a repository that hosts various Streamlit apps developed by INVOKE Analytics. Each app is designed to assist you in brainstorming, idea generation, and creative thinking. Whether you're looking to spark your imagination, organize your thoughts, or explore new concepts, these apps can be a valuable resource.
 
+## To Do's
+- Refactor code into Classes (updating the API is a chore since the way it is initally written is messy).
+- Update `n` parameter so model produces more than 1 image at a time (`dall-e-3` only produces 1 photo at a time, very annoying!).
+- Fine-tuning for digital marketing purposes so images are more suited for Instagram/Facebook ads.
+
 ## Installation
 
 To run the Streamlit apps locally on your machine, follow these steps:
 
 1. Clone this repository to your local machine:
-   git clone https://github.com/INVOKE-Analytics/IdeaSparkAi.git
+   `git clone` https://github.com/INVOKE-Analytics/IdeaSparkAi.git
 3. Navigate to the repository's directory:
-   cd IdeaSparkAi
+   `cd IdeaSparkAi`
 5. Install the required dependencies (ensure you have Python and pip installed):
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
+7. To launch the application, run the following in the terminal: 
+   `streamlit run 1_Open_Ended.py`
 
 ## Streamlit Apps
 
@@ -104,4 +111,3 @@ This project is licensed under the [MIT License](LICENSE).
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-

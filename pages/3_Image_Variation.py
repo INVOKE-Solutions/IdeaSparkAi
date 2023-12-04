@@ -55,10 +55,15 @@ if check_password():
         uploaded_file = st.file_uploader(label="**Upload an image**", type=["png", "jpg"])
 
         # Select box to select the size of the images
-        size = st.selectbox(label="**Select the size of the images**", options=["256x256", "512x512", "1024x1024"])
+        size = st.selectbox(label="**Select the size of the images**", options=["1024x1024", "1024x1792", "1792x1024"])
 
         # Number input to specify the number of images to be generated
-        num_images = st.selectbox("**Enter the number of images to be generate**", (1,2,3,4))
+        num_images = st.selectbox("**Enter the number of images to be generate**", (
+            1,
+            2,
+            3,
+            4,
+        ))
 
         # Submit button
         submit_button = st.form_submit_button(label="**Generate Images**")
