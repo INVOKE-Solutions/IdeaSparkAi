@@ -62,7 +62,17 @@ if check_password():
                 prompt_input = st.text_input(label="**Enter image prompt**")
 
                 # Select box to select the size of the images
-                size = st.selectbox(label="**Select image size**", options=["1024x1024", "1024x1792", "1792x1024"])
+                size = st.selectbox(label="**Select the size of your images**", options=["1024x1024", "1024x1792", "1792x1024"])
+
+                # Select box for image quality
+                quality = st.selectbox(label="**Select the quality of your images**", options=["Standard", "HD"])
+
+                # Select box for image style
+                style = st.selectbox(
+                        label="**Select the style of your images**",
+                        options=["Natural", "Vivid"],
+                        index=1,
+                    )
 
                 # Submit button
                 submit_button = st.form_submit_button(label="**Generate Stock Images**")
@@ -104,8 +114,10 @@ if check_password():
                             prompt=stock_prompt,
                             n=num_images,
                             size=size,
+                            quality=quality.lower(),
+                            style=style.lower(),
                         )
-
+                        
 
                         # Check if the number of images returned is less than num_images
                         if len(response['data']) < num_images:
