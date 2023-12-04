@@ -37,11 +37,13 @@ IdeaSparkAi is a repository that hosts various Streamlit apps developed by INVOK
 To run the Streamlit apps locally on your machine, follow these steps:
 
 1. Clone this repository to your local machine:
-   git clone https://github.com/INVOKE-Analytics/IdeaSparkAi.git
+   `git clone` https://github.com/INVOKE-Analytics/IdeaSparkAi.git
 3. Navigate to the repository's directory:
-   cd IdeaSparkAi
+   `cd IdeaSparkAi`
 5. Install the required dependencies (ensure you have Python and pip installed):
-   pip install -r requirements.txt
+   `pip install -r requirements.txt`
+7. To launch the application, run the following in the terminal: 
+   `streamlit run 1_Open_Ended.py`
 
 ## Streamlit Apps
 
