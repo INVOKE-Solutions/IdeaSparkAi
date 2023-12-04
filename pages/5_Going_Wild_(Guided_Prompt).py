@@ -53,6 +53,19 @@ if check_password():
         # Input prompt
         prompt_input = st.text_input("Enter a subject or element:")
 
+        # Select box to select the size of the images
+        size = st.selectbox(label="**Select the size of your images**", options=["1024x1024", "1024x1792", "1792x1024"])
+
+        # Select box for image quality
+        quality = st.selectbox(label="**Select the quality of your images**", options=["Standard", "HD"])
+
+        # Select box for image style
+        style = st.selectbox(
+                label="**Select the style of your images**",
+                options=["Natural", "Vivid"],
+                index=1,
+            )
+
         st.write("**Emotion**")
 
         # Create a multiselect widget for each emotion type
@@ -144,9 +157,11 @@ if check_password():
             response = openai.Image.create(
                 model="dall-e-3",
                 prompt=final_prompt,
-                size="1024x1024",
+                size=size,
                 response_format="url",
-                api_key=openai.api_key
+                api_key=openai.api_key,
+                quality=quality.lower(),
+                style=style.lower(),
             )
 
             num_images = len(response['data'])
