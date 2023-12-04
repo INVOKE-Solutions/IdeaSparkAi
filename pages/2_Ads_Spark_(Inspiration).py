@@ -56,6 +56,19 @@ if check_password():
         # Text input for the business industry
         business_industry = st.text_input(label="**Business Industry**")
 
+        # Select box to select the size of the images
+        size = st.selectbox(label="**Select the size of your images**", options=["1024x1024", "1024x1792", "1792x1024"])
+
+        # Select box for image quality
+        quality = st.selectbox(label="**Select the quality of your images**", options=["Standard", "HD"])
+
+        # Select box for image style
+        style = st.selectbox(
+                label="**Select the style of your images**",
+                options=["Natural", "Vivid"],
+                index=1,
+            )
+
         # Select box for the marketing objective
         marketing_objective = st.selectbox(
             label="**Marketing Objective**",
@@ -114,7 +127,9 @@ if check_password():
                     model="dall-e-3",
                     prompt=prompt,
                     n=num_images,
-                    size="1024x1024",
+                    size=size,
+                    quality=quality.lower(),
+                    style=style.lower(),
                 )
     
                 # Store the generated images in session state
