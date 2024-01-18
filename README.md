@@ -14,6 +14,13 @@ IdeaSparkAi is an innovative app designed to help creatives generate compelling 
 - Document format upload: JPEG, PNG
 - Service provider: Streamlit Apps
 
+
+## To Do's
+- [ ] Redeploy code on [Streamlit Community Cloud](https://streamlit.io/cloud) with **Invoke-Solutions repo** instead of Invoke-Analytics (to account for Org Name change).
+- [ ] Refactor code into Classes/functions (updating the API is a chore since the way it is initally written is messy).
+- [ ] Update `n` parameter so model produces more than 1 image at a time when OpenAI updates it's documentation (for now, `dall-e-3` [only produces 1 photo at a time, very annoying!](https://platform.openai.com/docs/guides/images/usage?context=node#:~:text=You%20can%20request%201%20image%20at%20a%20time%20with%20DALL%C2%B7E%203%20(request%20more%20by%20making%20parallel%20requests)%20or%20up%20to%2010%20images%20at%20a%20time%20using%20DALL%C2%B7E%202%20with%20the%20n%20parameter.)).
+- [ ] Fine-tuning for digital marketing purposes so images are more suited for Instagram/Facebook ads (optional as may be super expensive!).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -31,11 +38,6 @@ IdeaSparkAi is an innovative app designed to help creatives generate compelling 
 ## Introduction
 
 IdeaSparkAi is a repository that hosts various Streamlit apps developed by INVOKE Analytics. Each app is designed to assist you in brainstorming, idea generation, and creative thinking. Whether you're looking to spark your imagination, organize your thoughts, or explore new concepts, these apps can be a valuable resource.
-
-## To Do's
-- Refactor code into Classes (updating the API is a chore since the way it is initally written is messy).
-- Update `n` parameter so model produces more than 1 image at a time (`dall-e-3` only produces 1 photo at a time, very annoying!).
-- Fine-tuning for digital marketing purposes so images are more suited for Instagram/Facebook ads.
 
 ## Installation
 
