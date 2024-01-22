@@ -1,3 +1,13 @@
+"""
+A more guided way to construct prompts based on the following documents (initially based on DALL.E 2):
+- IdeaSpark - User Manual: https://drive.google.com/file/d/18gB4deiejEphDyyKhCjcMSHAK8qgqE0i/view?usp=sharing
+- Dall.E 3 OpenAI Cookbook: https://cookbook.openai.com/articles/what_is_new_with_dalle_3
+- Dall.E 2 Promptbook: https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf
+
+**Images generated:** 1
+**Model: DALL.E 3
+"""
+
 import streamlit as st
 import openai
 from security_utils import check_password

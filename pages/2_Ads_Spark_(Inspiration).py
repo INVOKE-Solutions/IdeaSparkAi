@@ -1,3 +1,11 @@
+"""
+This page takes the client's Industry and Visual Headline (obtained from 
+Digital Marketers via decoris) and outputs an ad visual.
+
+**Images generated:** 1
+**Model: DALL.E 3
+"""
+
 import streamlit as st
 import openai
 from security_utils import check_password

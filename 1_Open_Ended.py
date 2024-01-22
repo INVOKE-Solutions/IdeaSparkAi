@@ -1,3 +1,10 @@
+"""
+Page with the most general use case. Give it a prompt and it'll output an image.
+
+**Images generated:** 1
+**Model: DALL.E 3
+"""
+
 import streamlit as st
 import openai
 from security_utils import check_password

@@ -1,3 +1,10 @@
+"""
+This page that takes an image an produces variations. *NOTE: Image variation is only available on Dall.E 2 (older model)*.
+
+**Images generated:** 4
+**Model:** DALL.E 2
+"""
+
 import streamlit as st
 import openai
 from PIL import Image

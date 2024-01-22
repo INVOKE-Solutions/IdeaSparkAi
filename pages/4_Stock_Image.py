@@ -1,3 +1,10 @@
+"""
+This page generates stock images given a prompt.
+
+**Images generated:** 1
+**Model: DALL.E 3
+"""
+
 import streamlit as st
 import openai
 from security_utils import check_password
