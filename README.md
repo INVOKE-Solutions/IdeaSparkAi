@@ -21,7 +21,7 @@ IdeaSparkAi is an innovative app designed to help creatives generate compelling 
 - [ ] Update `n` parameter so model produces more than 1 image at a time when OpenAI updates it's documentation (for now, `dall-e-3` [only produces 1 photo at a time, very annoying!](https://platform.openai.com/docs/guides/images/usage?context=node#:~:text=You%20can%20request%201%20image%20at%20a%20time%20with%20DALL%C2%B7E%203%20(request%20more%20by%20making%20parallel%20requests)%20or%20up%20to%2010%20images%20at%20a%20time%20using%20DALL%C2%B7E%202%20with%20the%20n%20parameter.)).
 - [ ] Fine-tuning for digital marketing purposes so images are more suited for Instagram/Facebook ads (optional as may be super expensive!).
 
-## Table of Contents
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -41,17 +41,18 @@ IdeaSparkAi is a repository that hosts various Streamlit apps developed by INVOK
 
 ## Installation
 
-To run the Streamlit apps locally on your machine, follow these steps:
+To run this Streamlit app locally on your machine, follow these steps (we recommend using Python 3.10):
 
 1. Clone this repository to your local machine:
    `git clone` https://github.com/INVOKE-Analytics/IdeaSparkAi.git
 2. Navigate to the repository's directory:
    `cd IdeaSparkAi`
-3. Create a virtual environment: `python -m venv venv`
-4. Install the required dependencies (ensure you have Python and pip installed):
+3. Create a virtual environment: `python -m venv .venv`
+4. Activate your virtual environment: `source venv/Scripts/activate` (for Git Bash users)
+5. Install the required dependencies (ensure you have Python and pip installed):
    `pip install -r requirements.txt`
-5. To launch the application, run the following in the terminal: 
-   `streamlit run 1_Open_Ended.py`
+6. To launch the application, run the following in the terminal: 
+   `streamlit run 1_Open_Ended.py` (you can use the `tab` key as well to autocomplete file names e.g., type "1_🥳_Open_Ended.py")
 
 ## Streamlit Apps
 
